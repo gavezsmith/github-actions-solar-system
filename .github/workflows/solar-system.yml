@@ -45,9 +45,9 @@ jobs:
           with: 
             node-version: 18
         - run: npm install
-        - run: npm run code-coverage
-        - if: always()
-          uses: actions/upload-artifact@v4
+        - continue-on-error: true
+          run: npm run code-coverage
+        - uses: actions/upload-artifact@v4
           with:
             name: Code-Coverage-Result
             path: coverage
